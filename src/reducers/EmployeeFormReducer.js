@@ -1,8 +1,9 @@
 import {
 	EMPLOYEE_UPDATE,
 	EMPLOYEE_CREATE,
-	EMPLOYEE_CREATE_START
-} from '../actions/EmployeeActions';
+	EMPLOYEE_CREATE_START,
+	EMPLOYEE_EDIT_UPDATE
+} from '../actions';
 
 const INITIAL_STATE = {
 	name: '',
@@ -16,8 +17,15 @@ export default (state = INITIAL_STATE, action) => {
 	switch(action.type) {
 		case EMPLOYEE_UPDATE:
 			return { ...state, [action.payload.prop]: action.payload.value};
+		case EMPLOYEE_EDIT_UPDATE:
+			return {
+				...state, 
+				name: action.payload.name, 
+				phone: action.payload.phone, 
+				shift: action.payload.shift
+			};
 		case EMPLOYEE_CREATE_START:
-			return {... state, employeeBtnLoading: true, employeeBtnDisable: true};
+			return {...state, employeeBtnLoading: true, employeeBtnDisable: true};
 		case EMPLOYEE_CREATE:
 			return INITIAL_STATE;
 		default:

@@ -5,6 +5,7 @@ export const EMPLOYEE_UPDATE = 'EMPLOYEE_UPDATE';
 export const EMPLOYEE_CREATE = 'EMPLOYEE_CREATE';
 export const EMPLOYEE_CREATE_START = 'EMPLOYEE_CREATE_START';
 export const EMPLOYEES_FETCH_SUCCESS = 'EMPLOYEES_FETCH_SUCCESS';
+export const EMPLOYEE_EDIT_UPDATE = 'EMPLOYEE_EDIT_UPDATE';
 
 export const employeeUpdate = ({prop, value}) => {
 	return {
@@ -38,3 +39,15 @@ export const employeesFetch = () => {
 			});
 	};
 };
+
+export const employeeEditUpdate = ({name, phone, shift, uid}) => {
+	return {
+		type: EMPLOYEE_EDIT_UPDATE,
+		payload: {
+			name,
+			phone,
+			shift,
+			uid
+		}
+	}
+}

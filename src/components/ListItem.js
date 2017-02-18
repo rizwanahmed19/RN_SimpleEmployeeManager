@@ -7,7 +7,7 @@ import {CardSection} from './common';
 class ListItem extends Component {
 	handleRowPress() {
 		const {name, phone, shift, uid} = this.props;
-		Actions.employeeCreate({name, phone, shift, uid});
+		Actions.employeeEdit({ employee: {name, phone, shift, uid} });
 	}
 
 	render() {

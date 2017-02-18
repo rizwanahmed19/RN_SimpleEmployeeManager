@@ -22,7 +22,7 @@ class Button extends Component {
 				disabled={this.props.disable || this.props.employeeBtnDisable}
 				onPress={this.props.onPress}
         background={TouchableNativeFeedback.Ripple('##fff', false)}>
-	      <View style={styles.btnContainer}>
+	      <View style={[styles.btnContainer, this.props.style]}>
 	        {this.renderText()}
 	      </View>
 	    </TouchableNativeFeedback>
