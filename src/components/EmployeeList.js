@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ListView, View} from 'react-native';
+import {ListView, View, Keyboard} from 'react-native';
 import _ from 'lodash';
 import {connect} from 'react-redux';
 
@@ -12,6 +12,7 @@ class EmployeeList extends Component {
 		this.props.employeesFetch();
 
 		this.createDataSource(this.props);
+		Keyboard.dismiss();
 	}
 
 	componentWillReceiveProps(newProps) {

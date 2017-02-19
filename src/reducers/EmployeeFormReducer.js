@@ -3,7 +3,8 @@ import {
 	EMPLOYEE_CREATE,
 	EMPLOYEE_CREATE_START,
 	EMPLOYEE_EDIT_UPDATE,
-	EMPLOYEE_SAVE_SUCCESS
+	EMPLOYEE_SAVE_SUCCESS,
+	CLEAR_EMPLOYEE
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -29,6 +30,7 @@ export default (state = INITIAL_STATE, action) => {
 			return {...state, employeeBtnLoading: true, employeeBtnDisable: true};
 		case EMPLOYEE_CREATE:
 		case EMPLOYEE_SAVE_SUCCESS:
+		case CLEAR_EMPLOYEE:
 			return INITIAL_STATE;
 		default:
 			return state;
