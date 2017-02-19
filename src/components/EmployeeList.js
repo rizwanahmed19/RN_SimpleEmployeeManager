@@ -33,7 +33,7 @@ class EmployeeList extends Component {
 	renderListView() {
 		var listView = (
 			<ListView 
-				style={{marginTop: -36}}
+				style={{marginTop: -7}}
 				enableEmptySections
 				dataSource={this.dataSource}
 				renderRow={this.renderRow}

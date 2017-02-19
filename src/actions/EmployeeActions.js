@@ -6,6 +6,7 @@ export const EMPLOYEE_CREATE = 'EMPLOYEE_CREATE';
 export const EMPLOYEE_CREATE_START = 'EMPLOYEE_CREATE_START';
 export const EMPLOYEES_FETCH_SUCCESS = 'EMPLOYEES_FETCH_SUCCESS';
 export const EMPLOYEE_EDIT_UPDATE = 'EMPLOYEE_EDIT_UPDATE';
+export const EMPLOYEE_SAVE_SUCCESS = 'EMPLOYEE_SAVE_SUCCESS';
 
 export const employeeUpdate = ({prop, value}) => {
 	return {
@@ -49,5 +50,18 @@ export const employeeEditUpdate = ({name, phone, shift, uid}) => {
 			shift,
 			uid
 		}
+	}
+}
+
+export const employeeSave = ({name, phone, shift, uid}) => {
+	const {currentUser} = firebase.auth();
+
+	return (dispatch) => {
+		firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+			.set({ name, phone, shift})
+			.then(() => {
+				dispatch({type: EMPLOYEE_SAVE_SUCCESS});
+				Actions.employeeList({type: 'reset'});
+			});
 	}
 }
